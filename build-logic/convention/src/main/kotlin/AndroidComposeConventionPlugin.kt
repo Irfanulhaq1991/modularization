@@ -10,7 +10,7 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 
-class AndroidComposeConventionPlugin : Plugin<Project> {
+internal class AndroidComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
 
@@ -28,6 +28,7 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("compose.ui.graphics").get())
                 add("implementation", libs.findLibrary("compose.ui.tooling.preview").get())
                 add("implementation", libs.findLibrary("compose.material3").get())
+                add("implementation", libs.findLibrary("compose.ui.constraintlayout").get())
                 add("androidTestImplementation", platform(libs.findLibrary("compose.bom").get()))
                 add("androidTestImplementation", libs.findLibrary("compose.ui.test.junit4").get())
                 add("debugImplementation", libs.findLibrary("compose.ui.tooling").get())

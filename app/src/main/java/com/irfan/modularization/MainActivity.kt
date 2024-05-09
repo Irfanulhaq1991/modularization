@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.irfan.feature.listing.initialSetup
 import com.irfan.modularization.ui.theme.ModularizationTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,10 +33,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+//    Text(
+//        text = "Hello $name!",
+//        modifier = modifier
+//    )
+    initialSetup()
 }
 
 @Preview(showBackground = true)
