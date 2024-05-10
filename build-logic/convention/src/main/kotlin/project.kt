@@ -1,11 +1,11 @@
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.irfan.build_logic.convention.extentions.configureAndroid
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 fun Project.configure(moduleType: ModuleType, action: Project.() -> Unit = {}) =
     action().also {
@@ -14,7 +14,6 @@ fun Project.configure(moduleType: ModuleType, action: Project.() -> Unit = {}) =
             apply("org.jetbrains.kotlin.android")
             apply("org.jetbrains.kotlin.kapt")
         }
-
         when (moduleType) {
             ModuleType.APP -> extensions.configure<BaseAppModuleExtension>(::configureAndroid)
             ModuleType.LIBRARY -> extensions.configure<LibraryExtension>(::configureAndroid)
@@ -30,7 +29,9 @@ fun Project.configure(moduleType: ModuleType, action: Project.() -> Unit = {}) =
             add("androidTestImplementation", libs.findLibrary("androidx.test.ext.junit").get())
             add("androidTestImplementation", libs.findLibrary("espresso.core").get())
             add("testImplementation", libs.findLibrary("junit").get())
+
         }
+
     }
 
 

@@ -1,17 +1,14 @@
-package com.irfan.build_logic.convention.extentions
-
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.android.kotlin.multiplatform.ide.models.serialization.androidTargetKey
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 @Suppress("UnstableApiUsage")
-internal fun Project.configureAndroid(commonExtension: CommonExtension<*, *, *, *, *>) {
+ fun Project.configureAndroid(commonExtension: CommonExtension<*, *, *, *, *>) {
 
-    val appJavaVersion = JavaVersion.VERSION_17
+    val appJavaVersion = JavaVersion.VERSION_1_8
     commonExtension.apply {
         compileSdk = 34
 
@@ -22,7 +19,12 @@ internal fun Project.configureAndroid(commonExtension: CommonExtension<*, *, *, 
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
             if (commonExtension is BaseAppModuleExtension) {
-                commonExtension.defaultConfig.targetSdk = 34
+                commonExtension.defaultConfig{
+                    targetSdk = 34
+                    versionCode = 1
+                    versionName = "1.0"
+                }
+
                 vectorDrawables {
                     useSupportLibrary = true
                 }
@@ -49,7 +51,7 @@ internal fun Project.configureAndroid(commonExtension: CommonExtension<*, *, *, 
             targetCompatibility = appJavaVersion
         }
 
-        
+
         tasks.withType<KotlinCompile>().configureEach {
             kotlinOptions {
                 jvmTarget = appJavaVersion.toString()

@@ -1,4 +1,10 @@
 package com.irfan.modularization
 
-class App {
+import android.app.Application
+
+
+class App: Application() {
+
+   // val applicationGraph: ApplicationGraph = DaggerApplicationGraph.create()
+
 }

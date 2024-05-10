@@ -1,7 +1,7 @@
-package com.irfan.feature.details
+package com.irfan.feature.details.ui
 
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
-class DetailViewModel @Inject constructor():ViewModel() {
+
+class DetailViewModel :ViewModel() {
 }

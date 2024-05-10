@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.irfan.android.application)
-    alias(libs.plugins.irfan.android.compose)
+   // alias(libs.plugins.irfan.android.compose)
 }
 
 android {
@@ -8,10 +8,10 @@ android {
 
     defaultConfig {
         applicationId = "com.irfan.modularization"
-        versionCode = 1
-        versionName = "1.0"
     }
 }
+
+
 
 dependencies {
     implementation(project(":feature:listing"))

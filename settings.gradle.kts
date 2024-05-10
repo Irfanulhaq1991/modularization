@@ -18,4 +18,3 @@ rootProject.name = "Modularization"
 include(":app")
 include(":feature:listing")
 include(":feature:details")
-
